@@ -17,7 +17,7 @@ class TwilioController < ApplicationController
     @client.account.messages.create({
       :from => twilio_phone_number, 
       :to => '6262785522', # for testing, will be friend.phone_number
-      :body => 'Happy birthday!', # add friend.first_name
+      :body => 'Happy birthday!', # add friend.first_n
       :media_url => 'https://raw.githubusercontent.com/sf-learners-hackathon-2016/hackathon-app/master/app/assets/images/birthdaycard.png', # point to HBD card
     })
 
