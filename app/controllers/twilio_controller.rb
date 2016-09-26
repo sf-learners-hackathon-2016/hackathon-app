@@ -6,13 +6,13 @@ class TwilioController < ApplicationController
 
   def send_birthday_text
 
-    # credentials - hide later
-    account_sid = 'ACcd3fbbc32f31e6d2c425367a4db03155' 
-    auth_token = 'cff4a836142add66aaaa0b31db06a8b2' 
-    twilio_phone_number = "16264273517" # ENV['TWILIO_NUMBER']
+    # credentials 
+    account_sid = ENV['TWILIO_ACCOUNT_SID']
+    auth_token = ENV['TWILIO_AUTH_TOKEN']
+    twilio_phone_number = ENV['TWILIO_NUMBER']
 
     # set up a client to talk to the Twilio REST API 
-    @client = Twilio::REST::Client.new account_sid, auth_token  #ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
+    @client = Twilio::REST::Client.new account_sid, auth_token
      
     @client.account.messages.create({
       :from => twilio_phone_number, 
